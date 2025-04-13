@@ -1,0 +1,6 @@
+event_id,customer_id,order_id,event_ts,amount,region,date_partition
+evt-1001,cust-01,ord-901,2026-09-14T08:01:00Z,120.50,West,2026-09-14
+evt-1002,cust-02,ord-902,2026-09-14T09:15:00Z,85.00,East,2026-09-14
+evt-1003,cust-01,ord-903,2026-09-14T10:45:00Z,210.75,West,2026-09-14
+evt-1004,cust-03,ord-904,2026-09-14T11:20:00Z,150.25,Central,2026-09-14
+evt-1005,cust-04,ord-905,2026-09-14T12:45:00Z,95.25,East,2026-09-14
