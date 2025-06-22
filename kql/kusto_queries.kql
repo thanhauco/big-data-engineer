@@ -1,0 +1,27 @@
+// Kusto / Azure Data Explorer operational analytics examples
+
+// Recent errors by hour
+Telemetry
+| where Timestamp > ago(24h)
+| where Level == "Error"
+| summarize failures = count() by bin(Timestamp, 1h), MachineName
+| order by Timestamp desc
+
+// Highest failure rate by operation
+Telemetry
+| where Timestamp > ago(7d)
+| where Success == false
+| summarize failed = count() by OperationName
+| top 10 by failed desc
+
+// Top query volume
+Telemetry
+| where Timestamp > ago(1d)
+| summarize requests = count() by QueryName
+| top 20 by requests desc
+
+// Detect spikes in task throughput
+Telemetry
+| where Timestamp > ago(12h)
+| summarize rows = count() by bin(Timestamp, 5m)
+| where rows > 1000
